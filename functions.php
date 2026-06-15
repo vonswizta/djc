@@ -103,7 +103,7 @@ function enqueue_scripts()
 
     wp_enqueue_script(
         'theme',
-        $theme_uri . '/dist/js/app.js',
+        $theme_uri . '/dist/app.js',
         [],
         filemtime($theme_dir . '/dist/app.js'),
         true
