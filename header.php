@@ -2,7 +2,7 @@
 $head_code = get_field('head_code', 'option');
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?> id="master" class="no-js">
+<html <?php language_attributes(); ?> id="master" class="block">
 <head itemscope itemtype="http://schema.org/WebSite">
     <?php if ($head_code) { ?>
         <?php echo $head_code; ?>
@@ -31,10 +31,10 @@ $head_code = get_field('head_code', 'option');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
 
-    <link href="<?php echo get_template_directory_uri(); ?>/build/css/global.css?v=<?php echo time(); ?>" rel="preload"
+    <link href="<?php echo get_template_directory_uri(); ?>/dist/css/app.css?v=<?php echo time(); ?>" rel="preload"
           as="style" onload="this.rel='stylesheet'">
     <noscript>
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/build/css/global.css">
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/dist/css/app.css">
     </noscript>
     <?php wp_head(); ?>
 </head>
