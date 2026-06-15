@@ -2,7 +2,7 @@
 $head_code = get_field('head_code', 'option');
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?> id="master" class="block">
+<html <?php language_attributes(); ?> id="master" class="flex">
 <head itemscope itemtype="http://schema.org/WebSite">
     <?php if ($head_code) { ?>
         <?php echo $head_code; ?>

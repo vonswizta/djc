@@ -7,15 +7,19 @@ export default defineConfig({
 
   build: {
     outDir: 'dist',
+    emptyOutDir: true,
 
     rollupOptions: {
       input: path.resolve('source/js/app.js'),
 
       output: {
         entryFileNames: 'js/app.js',
+        chunkFileNames: 'js/[name].js',
 
         assetFileNames: (assetInfo) => {
-          if (assetInfo.names?.some(name => name.endsWith('.css'))) {
+          const name = assetInfo.names?.[0] || ''
+
+          if (name.endsWith('.css')) {
             return 'css/app.css'
           }
 

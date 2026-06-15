@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
+@source "../../**/*.php";
+@source "../js/**/*.{js,ts}";
+
 @import "./theme/colors.css";
 @import "./theme/fonts.css";
-
 @import "./components.css";
 @import "./utilities.css";
