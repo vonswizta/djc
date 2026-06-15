@@ -11,4 +11,9 @@
     --color-ivory-white: #FCFBF8;
     --color-charcoal-grey: #2B2B2B;
     --color-slate-grey: #5A5A5A;
+
+    --font-sans: "Inter", sans-serif;
+    --font-merriweather: "Merriweather", serif;
+
+    --logo-height: calc(90 / 16 * 1rem);
 }

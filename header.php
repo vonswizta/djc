@@ -29,17 +29,19 @@ $head_code = get_field('head_code', 'option');
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+          rel="stylesheet">
 
-    <link href="<?php echo get_template_directory_uri(); ?>/dist/css/app.css?v=<?php echo time(); ?>" rel="preload"
+    <link href="<?php echo get_template_directory_uri(); ?>/dist/app.css?v=<?php echo time(); ?>" rel="preload"
           as="style" onload="this.rel='stylesheet'">
     <noscript>
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/dist/css/app.css">
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/dist/app.css">
     </noscript>
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class('bg-charcoal-grey'); ?>>
 <div id="page" role="region">
-    <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
+    <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:rounded-md focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+       href="#main">Skip to content</a>
     <?php get_template_part('parts/global', 'masthead'); ?>
-    <main id="main">
+    <main id="main" class="bg-ivory-white">

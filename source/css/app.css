@@ -3,8 +3,7 @@
 @source "../../**/*.php";
 @source "../js/**/*.{js,ts}";
 
-@import "./theme/colors.css";
-@import "./theme/fonts.css";
+@import "./theme.css";
 @import "./base.css";
 @import "./components.css";
 @import "./utilities.css";

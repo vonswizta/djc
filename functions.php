@@ -105,7 +105,7 @@ function enqueue_scripts()
         'theme',
         $theme_uri . '/dist/js/app.js',
         [],
-        filemtime($theme_dir . '/dist/js/app.js'),
+        filemtime($theme_dir . '/dist/app.js'),
         true
     );
 }

@@ -6,49 +6,56 @@ if (!empty($block['anchor'])) {
 }
 
 $heading = get_field('heading');
-$link = get_field('link');
+$summary = get_field('summary');
 $image = get_field('image');
 
 ?>
 
-<section id="<?php echo esc_attr($id); ?>" class="hero layers bg dark">
-    <div class="layer content elements">
-        <div class="inner text-center tall">
-            <div class="container tall">
-                <div class="detail tall hero-gap <?php if ($link) { ?>justify-content-between<?php } ?>">
-                    <div class="hero-header">
-                        <h1>
-                            <?php if ($heading) { ?>
-                                <?php echo $heading; ?>
-                            <?php } else { ?>
-                                <?php the_title(); ?>
-                            <?php } ?>
-                        </h1>
-                    </div>
-                    <?php if ($link):
-                        $link_url = $link['url'];
-                        $link_title = $link['title'];
-                        $link_target = $link['target'] ? $link['target'] : '_self';
-                        ?>
-                        <div class="hero-link">
-                            <a class="button" href="<?php echo esc_url($link_url); ?>"
-                               target="<?php echo esc_attr($link_target); ?>">
-                                <span><?php echo esc_html($link_title); ?></span>
-                            </a>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="layer graphic">
-        <figure class="media banner overlay tall">
-            <?php if ($image) { ?>
-                <?php
-                $imageID = $image['ID'];
-                echo wp_get_attachment_image($imageID, 'huge', false, array('loading' => 'eager'));
-                ?>
+<section id="<?php echo esc_attr($id); ?>">
+    <div class="container mx-auto px-4">
+        <h1>
+            <?php if ($heading) { ?>
+                <?php echo $heading; ?>
+            <?php } else { ?>
+                <?php the_title(); ?>
             <?php } ?>
-        </figure>
+        </h1>
+
+        <?php if ($summary) { ?>
+            <div>
+                <?php echo $summary; ?>
+            </div>
+        <?php } ?>
+
+        <?php if (have_rows('links')) : ?>
+            <ul>
+                <?php while (have_rows('links')) : the_row();
+
+                    $link = get_sub_field('link');
+                    $url = $link['url'] ?? '';
+                    $title = $link['title'] ?? '';
+                    $target = $link['target'] ?? '_self';
+
+                    if ($url) :
+                        ?>
+                        <li>
+                            <a href="<?php echo esc_url($url); ?>"
+                               target="<?php echo esc_attr($target); ?>">
+                                <?php echo esc_html($title); ?>
+                            </a>
+                        </li>
+                    <?php
+                    endif;
+
+                endwhile; ?>
+            </ul>
+        <?php endif; ?>
+
+        <?php if ($image) { ?>
+            <?php
+            $imageID = $image['ID'];
+            echo wp_get_attachment_image($imageID, 'huge', false, array('loading' => 'eager'));
+            ?>
+        <?php } ?>
     </div>
 </section>

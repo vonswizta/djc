@@ -13,17 +13,17 @@ export default defineConfig({
       input: path.resolve('source/js/app.js'),
 
       output: {
-        entryFileNames: 'js/app.js',
-        chunkFileNames: 'js/[name].js',
+        entryFileNames: 'app.js',
+        chunkFileNames: '[name].js',
 
         assetFileNames: (assetInfo) => {
           const name = assetInfo.names?.[0] || ''
 
           if (name.endsWith('.css')) {
-            return 'css/app.css'
+            return 'app.css'
           }
 
-          return 'assets/[name]-[hash][extname]'
+          return '[name]-[hash][extname]'
         }
       }
     }
