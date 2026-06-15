@@ -1,0 +1,46 @@
+
+#master {
+  button, input[type='submit'] {
+    border: 0;
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    @include hover {
+      cursor: pointer;
+    }
+  }
+}
+
+#page {
+
+  .button, button:not(.trigger) {
+    @include button-primary;
+
+    &.secondary {
+      @include button-secondary;
+    }
+
+    &.tertiary {
+      @include button-tertiary;
+    }
+
+    &.outlined {
+      @include button-outlined;
+    }
+
+    .icon {
+      flex: none;
+      @include flex-centre;
+      width: 4rem;
+      aspect-ratio: 1;
+      background-color: $color-white;
+      margin-right: 1.5rem;
+      border-radius: 100%;
+
+      img {
+        @include image-contain;
+        padding: .7rem;
+      }
+    }
+  }
+}

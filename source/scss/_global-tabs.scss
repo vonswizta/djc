@@ -1,0 +1,59 @@
+.tab-nav {
+  @include master {
+    border: 0;
+    justify-content: center;
+    @include media-breakpoint-down(lg) {
+      margin-bottom: 1.5rem;
+    }
+    .nav-link {
+      width: 100%;
+      padding: 1.5rem;
+      background-color: rgba($color-white, .5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+      transition: background-color $animation;
+      height: 100%;
+      @include media-breakpoint-up(lg) {
+        width: 15rem;
+      }
+      @include media-breakpoint-down(lg) {
+        border-radius: 2rem;
+      }
+      @include hover {
+        background-color: $color-mint;
+      }
+
+      &.active {
+        background-color: $color-white;
+      }
+
+      .media {
+        width: 3rem;
+
+        &.larger-icon {
+          width: 100%;
+          aspect-ratio: 3/2;
+        }
+
+        img {
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
+
+.tab-content {
+  margin-top: -1px;
+  position: relative;
+  background-color: $color-white;
+  padding: 4rem;
+  @include media-breakpoint-down(lg) {
+    padding: 2rem;
+  }
+  border-radius: 2rem;
+}

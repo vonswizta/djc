@@ -1,0 +1,29 @@
+.gt_switcher-popup {
+  @include master {
+    @include nav-button;
+    gap: .7rem;
+
+    @include hover {
+      background-color: $color-white;
+      color: $color-grey-dark;
+    }
+
+    span {
+      margin: 0;
+      font-size: $font-small;
+      @include media-breakpoint-down(xl) {
+        @include visually-hidden;
+      }
+    }
+
+    > :last-child {
+      display: none;
+    }
+  }
+}
+
+#master:has(.gt_white_content[style*="block"]) {
+  body {
+    overflow: hidden;
+  }
+}

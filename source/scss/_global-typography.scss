@@ -1,0 +1,127 @@
+
+h1, h2, h3, h4, h5, h6, p, blockquote, figure, ul, ol, address {
+  margin: 0;
+}
+
+body {
+  @include font-sans-serif-regular;
+  color: $color-grey-dark;
+  line-height: $line-body;
+}
+
+h1, h2, h3, h4, h5, h6, .heading, .wpforms-title {
+  @include font-sans-serif-bold;
+  line-height: $line-heading;
+
+  &.serif {
+    @include font-serif-regular;
+    line-height: 1.1;
+
+    &.bold {
+      @include font-serif-bold;
+    }
+  }
+}
+
+.excerpt {
+  > p {
+    line-height: $line-heading;
+  }
+}
+
+h1, .h1 {
+  font-size: $font-h2;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-h1;
+  }
+}
+
+h2, .h2 {
+  font-size: $font-h2-small;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-h2;
+  }
+}
+
+h3, .h3 {
+  font-size: $font-h4;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-h3;
+  }
+}
+
+h4, .h4 {
+  font-size: $font-h5;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-h4;
+  }
+}
+
+h5, .h5 {
+  font-size: $font-h6;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-h5;
+  }
+}
+
+h6, .h6 {
+  font-size: $font-h6;
+}
+
+.font-huge {
+  font-size: $font-h2;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-huge;
+  }
+}
+
+.font-extra {
+  font-size: $font-h2;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-extra;
+  }
+}
+
+.font-large {
+  font-size: $font-large;
+}
+
+.font-medium {
+  font-size: $font-medium;
+}
+
+.font-increase {
+  font-size: $font-increase;
+}
+
+.font-small {
+  @include master-page {
+    font-size: $font-small;
+  }
+}
+
+.font-tiny {
+  @include master-page {
+    font-size: $font-tiny;
+  }
+}
+
+.serif {
+  @include font-serif-regular;
+
+  &.bold {
+    @include font-serif-bold;
+  }
+}
+
+body, .font-body {
+  font-size: $font-body;
+}
+
+strong, b, .bold {
+  @include font-sans-serif-bold;
+}
+
+em, i, .italic {
+  @include font-sans-serif-italic;
+}

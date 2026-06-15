@@ -1,0 +1,27 @@
+
+.article-author {
+  margin-top: -$gap-xl / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .media {
+    width: $gap-xl;
+    border-width: 1rem;
+    border-color: $color-blue-faded;
+  }
+}
+
+.hero-single {
+  .detail {
+    padding-bottom: $gap-xl / 2;
+  }
+}
+
+.article-content {
+  .editor {
+    h2, h3, h4, h5, h6 {
+      color: $color-blue-dark;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+
+.media {
+  max-width: 100%;
+  position: relative;
+
+  img {
+    @include master {
+      @include image-cover;
+      @include png-contain;
+    }
+  }
+
+  &.banner {
+    @include aspect-ratio(12/5);
+    @include media-breakpoint-up(xxl) {
+      @include aspect-ratio(12/4);
+    }
+    &.smaller {
+      @include media-breakpoint-up(xl) {
+        @include aspect-ratio(72/25);
+      }
+    }
+  }
+
+  &.gallery-large {
+    aspect-ratio: 4/3;
+  }
+
+  &.gallery-small {
+    aspect-ratio: 3/2;
+  }
+
+  &.square {
+    @include aspect-ratio(1);
+  }
+
+  &.tile {
+    @include aspect-ratio(7/5);
+  }
+
+  &.preview {
+    @include aspect-ratio(28/17);
+  }
+
+  &.widescreen {
+    @include aspect-ratio(21/9);
+  }
+
+  &.landscape {
+    @include aspect-ratio(43/26);
+  }
+
+  &.embed {
+    @include aspect-ratio(16/9);
+
+    iframe {
+      @include embed;
+    }
+  }
+
+  &.overlay {
+    &:before {
+      content: '';
+      @include absolute-cover;
+      background-color: $color-overlay;
+    }
+  }
+
+  &.profile {
+    width: $gap-large;
+    border-radius: 100%;
+    overflow: hidden;
+    background-color: $color-blue-light;
+    border: solid .3rem $color-blue-dark;
+  }
+}

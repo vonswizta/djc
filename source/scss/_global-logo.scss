@@ -1,0 +1,19 @@
+.logo {
+  display: inline-flex;
+  @include aspect-ratio(17/10);
+  @include svg-mask;
+  @include svg-mask-image($color-white, logo);
+}
+
+.masthead {
+  .logo {
+    width: 17rem;
+  }
+}
+
+.footer {
+  .logo {
+    width: 25rem;
+  }
+}
+

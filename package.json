@@ -1,0 +1,27 @@
+{
+  "name": "cas",
+  "scripts": {
+    "start": "webpack serve",
+    "dev": "webpack build --mode=development",
+    "prod": "webpack build --mode=production"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^5.0.36",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "plyr": "^3.7.8",
+    "swiper": "^11.1.15"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "css-loader": "^7.1.2",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss-loader": "^8.1.1",
+    "sass": "^1.82.0",
+    "sass-loader": "^16.0.4",
+    "style-loader": "^4.0.0",
+    "terser-webpack-plugin": "^5.3.10",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
+  }
+}

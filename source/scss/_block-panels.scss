@@ -1,0 +1,8 @@
+.image-gap {
+  img {
+    padding: 3rem;
+    @include media-breakpoint-up(lg) {
+      padding: 5rem;
+    }
+  }
+}

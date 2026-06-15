@@ -1,0 +1,160 @@
+
+.swiper {
+  width: 100%;
+  height: auto;
+
+  &:not(.swiper-gallery) {
+    @include master {
+      overflow: visible;
+    }
+  }
+
+  &:has(.swiper-pagination-lock) {
+    .swiper-wrapper {
+      justify-content: center;
+    }
+
+    .swiper-controls {
+      display: none;
+    }
+  }
+
+  @include loader;
+  @include carousel-data-items(3);
+  @include carousel-data-items(4);
+  @include carousel-data-items(5);
+}
+
+.swiper-wrapper, .swiper-controls {
+  opacity: 0;
+  transition: opacity $animation;
+}
+
+.swiper-initialized {
+  .swiper-wrapper, .swiper-controls {
+    opacity: 1;
+  }
+
+  &:before {
+    display: none;
+  }
+}
+
+.swiper-slide {
+  @include master {
+    height: auto;
+  }
+}
+
+[class^="swiper-button"], .swiper-scrollbar, .swiper-pagination {
+  @include master {
+    position: static;
+    left: auto;
+    top: auto;
+    bottom: auto;
+  }
+}
+
+[class^="swiper-button"] {
+  @include master {
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+    width: $target-hit;
+    flex: none;
+    height: auto;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 100%;
+    margin: 0;
+    @include flex-centre;
+    &:after {
+      display: none;
+    }
+    &:before {
+      @include svg-mask-square;
+      width: 2rem;
+      @include svg-mask-image($color-grey-dark, 'chevron-thick-right');
+    }
+  }
+}
+
+.swiper-button-prev {
+  @include master {
+    &:before {
+      mask-image: url('#{$images}/chevron-thick-left.svg');
+    }
+  }
+}
+
+.swiper-pagination {
+  @include master {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+.swiper-pagination-bullet {
+  @include master {
+    width: 2rem;
+    height: auto;
+    aspect-ratio: 1;
+    margin: 0;
+    background-color: $color-white;
+    opacity: 1;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  @include master {
+    background-color: $color-grey-dark;
+  }
+}
+
+.swiper-controls {
+  padding-top: 4rem;
+  display: flex;
+  justify-content: center;
+
+  .inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.swiper-button-lock, .swiper-pagination-lock {
+  @include visually-hidden;
+}
+
+.gallery-thumbs {
+  .swiper-slide {
+    flex: 0 0 auto;
+    width: calc(100% / 6);
+  }
+
+  .media {
+    border-radius: 2rem;
+    overflow: hidden;
+    background-color: $color-white;
+    border: solid .4rem $color-white;
+    transition: border-color $animation;
+    @include hover {
+      cursor: pointer;
+    }
+  }
+
+  .swiper-slide-thumb-active {
+    .media {
+      border-color: $color-blue-dark;
+    }
+  }
+}
+
+.thumbs-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

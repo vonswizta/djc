@@ -1,0 +1,44 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  .content {
+    padding-top: $mast-height;
+  }
+
+  .graphic {
+    overflow: hidden;
+  }
+
+  .inner {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .covered {
+    @include absolute-cover;
+  }
+
+  .hero-gap {
+    > :not(:last-child) {
+      margin-bottom: 3rem;
+      @include media-breakpoint-up(lg) {
+        margin-bottom: 15rem;
+      }
+    }
+  }
+
+  h1 {
+    animation: content_in $animation-time-long $animation-ease forwards;
+  }
+
+  .graphic {
+    animation: image_in $animation-time-long $animation-ease forwards;
+  }
+}

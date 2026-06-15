@@ -1,0 +1,94 @@
+
+.masthead:is(.up) {
+  & ~ #main .product-overview {
+    @include media-breakpoint-up(lg) {
+      top: 4rem;
+    }
+  }
+}
+
+.product-overview {
+  @include shadow;
+  background-color: $color-white;
+  border-radius: 2rem;
+  font-size: $font-medium;
+  @include media-breakpoint-up(lg) {
+    position: sticky;
+    top: 4rem + $mast-height;
+    transition: top $animation;
+  }
+}
+
+.overview-section {
+  padding: 2.5rem;
+
+  &.top {
+    padding-bottom: 0;
+  }
+
+  &.midway {
+    background-color: $color-sand;
+  }
+}
+
+.product-gallery {
+  padding-top: 4rem;
+}
+
+.gallery-main {
+  border-radius: 2rem;
+}
+
+.tags {
+  font-size: $font-small;
+  @include font-sans-serif-bold;
+  display: flex;
+  flex-direction: column;
+  gap: $gutter / 2;
+
+  li {
+    display: flex;
+    align-items: center;
+
+    &:before {
+      content: '';
+      flex: none;
+      width: $gutter;
+      aspect-ratio: 1;
+      margin-right: $gutter / 2;
+      border-radius: 100%;
+      background: $color-white url('#{$images}/tick.svg') no-repeat center center / 55%;
+    }
+  }
+}
+
+.features {
+  border-radius: .8rem;
+  overflow: hidden;
+
+  > div {
+    padding: 2.5rem;
+  }
+
+  &-top {
+    background-color: $color-white;
+  }
+
+  &-middle {
+    background-color: $color-sand;
+  }
+}
+
+#product-detail {
+  .content {
+    @include media-breakpoint-down(lg) {
+      padding-top: 3rem;
+    }
+  }
+}
+
+.product-detail-aside {
+  @include media-breakpoint-down(lg) {
+    order: -1;
+  }
+}

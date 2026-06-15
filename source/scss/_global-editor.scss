@@ -1,0 +1,72 @@
+.editor {
+
+  p, li {
+    @include font-serif-regular;
+
+    strong, b {
+      @include font-serif-bold;
+    }
+
+    em, i {
+      @include font-serif-italic;
+    }
+  }
+
+  > :not(:last-child) {
+    margin-bottom: $gutter;
+  }
+
+  a {
+    @include text-link(#{$color-blue-dark}, #{$color-blue-dark});
+    @include link-external($color-blue-dark);
+  }
+
+  img, iframe {
+    display: block;
+    max-width: 100%;
+  }
+
+  img {
+    height: auto;
+  }
+
+  ul {
+    li {
+      background-repeat: no-repeat;
+      background-size: .7rem;
+      background-position: left .6em;
+      background-image: get-icon('bullet', $color-blue-dark);
+      padding-left: 2rem;
+    }
+  }
+
+  ol {
+    counter-reset: listing;
+
+    li {
+      counter-increment: listing;
+
+      &:before {
+        content: "" counter(listing) ". ";
+      }
+    }
+
+  }
+
+  li {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+}
+
+blockquote {
+  position: relative;
+  font-size: $font-h3;
+  @include font-serif-bold-italic;
+}
+
+.table-wrapper {
+  overflow: auto;
+}

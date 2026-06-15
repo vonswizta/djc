@@ -1,0 +1,128 @@
+.menu-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: $target-hit;
+  @include aspect-ratio(1);
+
+  &:before {
+    @include svg-mask-square;
+  }
+
+  &.open {
+    &:before {
+      width: 80%;
+      background-color: $color-white;
+      mask-image: url('#{$images}/menu.svg');
+    }
+  }
+
+  &.close {
+    &:before {
+      width: 40%;
+      background-color: $color-grey-dark;
+      mask-image: url('#{$images}/close.svg');
+    }
+  }
+}
+
+.offcanvas {
+  @include font-sans-serif-bold;
+  overflow: auto;
+
+  > :not(:last-child) {
+    margin-bottom: $gutter-half;
+  }
+
+  ul {
+    > :not(:last-child) {
+      margin-bottom: $gutter-half;
+    }
+
+    .menu-item-has-children {
+      > a {
+        justify-content: space-between;
+
+        &:after {
+          margin-left: $gutter;
+          width: 2rem;
+          @include svg-mask-square;
+          @include svg-mask-image($color-grey-dark, 'chevron-thin-right');
+        }
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      background-color: $color-mint;
+      padding: 2rem;
+
+      .content {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  &-top {
+    background-color: $color-blue-faded;
+    padding: 1.5rem 2rem;
+  }
+
+  .description {
+    font-size: $font-small;
+    display: block;
+  }
+
+  .icon {
+    flex: none;
+    margin-right: 1rem;
+    width: $gutter;
+    @include aspect-ratio(1);
+
+    img {
+      @include image-contain;
+    }
+
+    @include media-breakpoint-up(xl) {
+      display: none;
+    }
+  }
+
+  .image {
+    display: none;
+  }
+
+  .sub-show {
+    > a {
+      display: none;
+    }
+
+    > .custom-sub {
+      display: block;
+      animation: menu_in $animation;
+    }
+  }
+
+  .sub-hide {
+    display: none;
+  }
+
+  .back-level {
+    a {
+      font-size: $font-medium;
+
+      &:before {
+        margin-right: .8rem;
+        width: $gutter / 2;
+        @include svg-mask-square;
+        @include svg-mask-image($color-grey-dark, 'chevron-thin-left');
+      }
+    }
+  }
+
+  .custom-sub {
+    display: none;
+  }
+}

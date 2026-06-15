@@ -1,0 +1,100 @@
+.block-group {
+  > :not(:last-child) {
+    margin-bottom: 4rem;
+  }
+}
+
+.wp-block-group {
+  @extend .block-padding;
+  @include media-breakpoint-up(lg) {
+    @include make-row;
+    justify-content: center;
+  }
+
+  > div {
+    @extend .editor;
+    @extend .container;
+    @include media-breakpoint-up(lg) {
+      @include make-col-ready;
+      @include make-col(8);
+    }
+  }
+}
+
+.wp-block-separator {
+  @include master {
+    margin-top: 0;
+    opacity: .5;
+    border-top: 0;
+    border-bottom: dashed 2px $color-grey-dark;
+  }
+}
+
+.wp-block-embed {
+  @include master {
+    @include media-breakpoint-up(lg) {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    > div {
+      position: relative;
+      @include aspect-ratio(16/9);
+    }
+    iframe {
+      @include embed;
+    }
+  }
+}
+
+.block-core {
+  &.quote {
+    padding-top: 2rem;
+
+    blockquote {
+      @include master {
+        position: relative;
+        padding-left: 10rem;
+
+        &:before, &:after {
+          content: '';
+          position: absolute;
+        }
+
+        &:before {
+          top: 0;
+          left: 0;
+          width: 3.5rem;
+          @include aspect-ratio(1);
+          background-repeat: no-repeat;
+          background-size: 100%;
+          background-position: center center;
+          background-image: get-icon('quote', $color-blue-dark);
+        }
+
+        &:after {
+          top: 0;
+          left: 6.5rem;
+          bottom: 0;
+          background-color: $color-blue-dark;
+          width: .3rem;
+        }
+
+        p {
+          font-size: $font-h3;
+          @include font-sans-serif-italic;
+
+          &:not(:last-of-type) {
+            margin-bottom: 2rem;
+          }
+        }
+
+        cite {
+          padding-top: 2rem;
+          display: block;
+          font-size: $font-body;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@function pxtopercent($target, $parent: 16) {
+  @return percentage($target / $parent);
+}
+
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}

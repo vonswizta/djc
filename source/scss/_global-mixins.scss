@@ -1,0 +1,443 @@
+@mixin make-max-widths-container-width($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+@mixin make-col-custom($size, $columns: $grid-columns) {
+  width: percentage($size / $columns);
+}
+
+@mixin hover {
+  @media not all and (hover: none) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin hover-focus {
+  &:hover, &:focus {
+    @content;
+  }
+}
+
+@mixin focus {
+  &:focus, &:focus-visible {
+    @content;
+  }
+}
+
+@mixin focus-within {
+  &:focus-within {
+    @content;
+  }
+}
+
+@mixin master {
+  #master & {
+    @content;
+  }
+}
+
+@mixin page {
+  #page & {
+    @content;
+  }
+}
+
+@mixin master-page {
+  #master #page & {
+    @content;
+  }
+}
+
+@mixin menu-open {
+  #master.menu-open & {
+    @content;
+  }
+}
+
+@mixin grid-stack {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+
+  > * {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    position: relative;
+  }
+}
+
+@mixin aspect-ratio($size) {
+  aspect-ratio: $size;
+}
+
+@mixin svg-mask {
+  mask-size: contain;
+  mask-position: center center;
+  mask-repeat: no-repeat;
+}
+
+@mixin svg-mask-image($color, $icon) {
+  background-color: $color;
+  mask-image: url('#{$images}/#{$icon}.svg');
+}
+
+@mixin svg-mask-square {
+  content: '';
+  flex: none;
+  @include aspect-ratio(1);
+  @include svg-mask;
+}
+
+@mixin svg-mask-icon($icon,$size) {
+  width: $size;
+  @include aspect-ratio(1);
+  @include svg-mask;
+  mask-image: get-icon($icon);
+}
+
+@mixin svg-background {
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+@mixin svg-background-image($icon) {
+  background-image: url('#{$images}/#{$icon}.svg');
+}
+
+@mixin svg-background-square {
+  content: '';
+  flex: none;
+  @include aspect-ratio(1);
+  @include svg-background;
+}
+
+@mixin gutter($value) {
+  &:not(.no-gutters) {
+    margin-right: -$value;
+    margin-left: -$value;
+
+    > div {
+      padding-right: $value;
+      padding-left: $value;
+    }
+  }
+}
+
+@mixin gutter-y($value) {
+  margin-top: -$value;
+  > div {
+    margin-top: $value;
+  }
+}
+
+@mixin button-reset {
+  border: 0;
+  @include hover {
+    cursor: pointer;
+  }
+}
+
+@mixin button-block {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+@mixin button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+  background-color: $color-cyan;
+  color: $color-grey-dark;
+  font-size: $font-medium;
+  @include font-sans-serif-bold;
+  padding: 2rem 4rem;
+  border-radius: 4rem;
+  transition: background-color $animation, color $animation;
+  &:not(.no-arrow) {
+    &:after {
+      width: 1.8rem;
+      margin-left: 1.2rem;
+      @include svg-mask-square;
+      @include svg-mask-image($color-grey-dark, chevron-thick-right);
+      transition: background-color $animation, transform $animation;
+    }
+    @include hover {
+      &:after {
+        background-color: $color-cyan;
+        transform: translateX(.5rem);
+      }
+    }
+  }
+  @include hover {
+    background-color: $color-grey-dark;
+    color: $color-cyan;
+  }
+}
+
+@mixin button-secondary {
+  @include master {
+    background-color: $color-grey-dark;
+    color: $color-white;
+    &:after {
+      background-color: $color-white;
+    }
+    @include hover {
+      background-color: $color-blue;
+    }
+  }
+}
+
+@mixin button-tertiary {
+  @include master {
+    background-color: $color-white;
+    @include hover {
+      background-color: $color-sage;
+      color: $color-white;
+      &:after {
+        background-color: $color-white;
+      }
+    }
+  }
+}
+
+@mixin button-outlined {
+  @include master {
+    background-color: transparent;
+    border: solid 1px $color-grey-dark;
+    @include hover {
+      background-color: $color-grey-dark;
+      color: $color-white;
+      &:after {
+        background-color: $color-white;
+      }
+    }
+  }
+}
+
+@mixin button-previous {
+  @include master {
+    &:after {
+      order: -1;
+      mask-image: url('#{$images}/chevron-thick-left.svg');
+      margin-left: 0;
+      margin-right: 1.2rem;
+    }
+    @include hover {
+      &:after {
+        transform: translateX(-.5rem);
+      }
+    }
+  }
+}
+
+@mixin list-reset {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin transform-middle {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin flex-centre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin absolute-centre {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absolute-middle {
+  position: absolute;
+  @include transform-middle;
+}
+
+@mixin absolute-vertical {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin absolute-cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+@mixin fixed-cover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+@mixin image-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@mixin image-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@mixin appearance-reset {
+  appearance: none;
+  border-radius: 0;
+}
+
+@mixin embed {
+  @include absolute-cover;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin text-link($color-off,$color-on) {
+  color: $color-off;
+  box-shadow: inset 0 -1px 0 0 $color-off;
+  transition: color $animation, box-shadow $animation;
+  @include hover {
+    color: $color-on;
+    box-shadow: inset 0 -2px 0 0 $color-on;
+  }
+}
+
+@mixin text-link-reverse($color-off,$color-on) {
+  color: $color-off;
+  transition: color $animation, box-shadow $animation;
+  @include hover {
+    color: $color-on;
+    box-shadow: inset 0 -2px 0 0 $color-on;
+  }
+}
+
+@mixin text-link-icon($color-off,$color-on) {
+  span {
+    color: $color-off;
+    box-shadow: inset 0 -1px 0 0 $color-off;
+    transition: color $animation, box-shadow $animation;
+  }
+  @include hover {
+    span {
+      color: $color-on;
+      box-shadow: none;
+    }
+  }
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+@mixin block-spacing {
+  margin-bottom: $gap / 2;
+  @include media-breakpoint-up(lg) {
+    margin-bottom: $gap;
+  }
+}
+
+@mixin block-padding($value) {
+  padding-top: $value / 2;
+  padding-bottom: $value / 2;
+  @include media-breakpoint-up(lg) {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+}
+
+@mixin png-contain {
+  &[src*="png"] {
+    object-fit: contain;
+  }
+}
+
+@mixin image-zoom {
+  transform: scale(1.15);
+}
+
+@mixin link-external($color) {
+  &[href^='http']:not([href*='compass']), &[href$='.pdf'] {
+    &:after {
+      content: '';
+      display: inline-flex;
+      margin-left: .5rem;
+      background-color: $color;
+      @include svg-mask-icon('external', 1.5rem);
+    }
+  }
+}
+
+@mixin loader {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -$target-hit / 2;
+    margin-left: -$target-hit / 2;
+    width: $target-hit;
+    height: $target-hit;
+    border: .8rem solid rgba($color-teal, .2);
+    border-right-color: $color-teal;
+    border-radius: 100%;
+    animation: rotate $animation-time infinite linear;
+  }
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@mixin carousel-data-items($value) {
+  @include media-breakpoint-up(lg) {
+    &[data-items='#{$value}'] {
+      .swiper-slide {
+        @include master {
+          flex: 0 0 auto;
+          width: calc(100% / #{$value});
+        }
+      }
+    }
+  }
+}
+
+@mixin shadow {
+  box-shadow: rgba($color-black, .08) 0 .4rem 1.2rem;
+}
+
+@mixin nav-button {
+  display: flex;
+  align-items: center;
+  padding: .5rem 2.4rem;
+  min-height: $target-hit;
+  max-width: 21rem;
+  line-height: 1.2;
+  text-align: center;
+  border-radius: 5rem;
+  transition: background-color $animation, color $animation;
+}

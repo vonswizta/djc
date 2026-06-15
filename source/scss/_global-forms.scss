@@ -1,0 +1,174 @@
+#page {
+  ::placeholder {
+    transition: opacity $animation;
+    color: $color-grey-dark;
+  }
+
+  *:focus::placeholder {
+    opacity: 0;
+  }
+
+  input, select, textarea {
+    @include appearance-reset;
+  }
+
+  label {
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  textarea {
+    height: 20rem;
+    display: block;
+  }
+
+  input:not([type='submit']):not([type='checkbox']):not([type='radio']), select, textarea {
+    background-color: $color-white;
+    color: $color-grey-dark;
+    width: 100%;
+    padding: 1.2rem 3rem;
+    border-radius: 4rem;
+    overflow: hidden;
+    border: solid .4rem $color-sky;
+    font-size: $font-small;
+    transition: border-color $animation;
+    @include master {
+      @include hover {
+        border-color: $color-blue;
+      }
+    }
+  }
+
+  select {
+    background-repeat: no-repeat;
+    padding-right: 5rem;
+
+    &:not(#filter-category) {
+      background-image: url('#{$images}/chevron-thick-down.svg');
+      background-size: auto 1rem;
+      background-position: right 2.5rem center;
+    }
+  }
+
+  #filter-category {
+    padding-left: 5.5rem;
+    background-image: url('#{$images}/chevron-thick-down.svg'), url('#{$images}/list.svg');
+    background-position: right 2.5rem center, 2.5rem center;
+    background-size: auto 1rem, auto 1.2rem;
+  }
+
+  // wpforms
+
+  .wpforms-container {
+    background-color: $color-mint;
+    @include block-padding($gap-large);
+  }
+
+  .wpforms-form {
+    @extend .container;
+    @include media-breakpoint-up(lg) {
+      @include make-col-ready;
+      @include make-col(8);
+    }
+  }
+
+  .wpforms-field-container {
+    font-size: $font-small;
+
+    > :not(:last-child) {
+      margin-bottom: $gap-small;
+    }
+  }
+
+  .wpforms-head-container {
+    text-align: center;
+    margin-bottom: $gap-medium;
+  }
+
+  .wpforms-submit-container, .wpforms-recaptcha-container {
+    padding-top: $gutter;
+  }
+
+  .wpforms-hidden, .wpforms-label-hide {
+    @include visually-hidden;
+  }
+
+  .wpforms-error {
+    color: $color-status-red;
+    padding-top: 1rem;
+    display: block;
+  }
+
+  .wpforms-title {
+    @extend .h2;
+    margin-bottom: 2rem;
+  }
+
+  .wpforms-field-label {
+    @include font-sans-serif-bold;
+    margin-bottom: .5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+
+  .wpforms-field-gdpr-checkbox {
+    position: relative;
+
+    input {
+      @include absolute-cover;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+
+      &:checked + label:before {
+        background-image: url('#{$images}/tick.svg');
+        border-color: $color-grey-dark;
+      }
+
+      &:focus, &:focus-visible {
+        opacity: 1;
+      }
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      @include master {
+        margin: 0;
+      }
+
+      &:before {
+        content: '';
+        flex: none;
+        margin-right: 1.5rem;
+        width: 3rem;
+        height: 3rem;
+        background-color: $color-white;
+        border: solid .2rem $color-blue;
+        border-radius: .3rem;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 70%;
+        transition: background-color $animation, border-color $animation;
+      }
+
+      a {
+        @include text-link(#{$color-blue}, #{$color-blue});
+        position: relative;
+        z-index: 1;
+      }
+
+      > span {
+        flex: 1;
+      }
+    }
+  }
+
+  .wpforms-confirmation-container {
+    @extend .editor;
+    @extend .container;
+    text-align: center;
+  }
+}

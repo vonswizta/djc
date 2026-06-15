@@ -1,0 +1,38 @@
+$grid-gutter-width: $gutter;
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1400px
+);
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1192px,
+        xxl: 1320px
+);
+
+$gutters: (
+        0: 0,
+        1: $gutter / 2,
+        2: $gutter / 1.5,
+        3: $gutter,
+        4: $gutter * 1.5,
+        5: $gutter * 2,
+        6: $gutter * 4,
+);
+
+$offcanvas-horizontal-width: 90%;
+$offcanvas-bg-color: $color-cyan;
+$offcanvas-color: $color-grey-dark;
+$offcanvas-backdrop-bg: $color-black;
+$offcanvas-backdrop-opacity: .8;
+
+$modal-header-padding-y: 1.5rem;
+$modal-header-padding-x: 2rem;
+$modal-backdrop-opacity: $offcanvas-backdrop-opacity;

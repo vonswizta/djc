@@ -1,0 +1,81 @@
+.accordion {
+  border-radius: 2rem;
+  overflow: hidden;
+
+  &-item {
+    &:not(:last-child) {
+      margin-bottom: .5rem;
+    }
+  }
+
+  &.divided {
+    .accordion-item {
+      margin-bottom: 0;
+      &:not(:last-child) {
+        border-bottom: solid .4rem $color-blue-faded;
+      }
+    }
+  }
+
+  &-button {
+    @include master {
+      width: 100%;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      background-color: $color-white;
+      padding: 3rem;
+      @include font-sans-serif-bold;
+      transition: color $animation;
+
+      @include hover {
+        color: $color-sage;
+      }
+
+      &[aria-expanded='true'] {
+        color: $color-blue-dark;
+
+        &:after {
+          mask-image: url('#{$images}/chevron-thick-up.svg');
+        }
+      }
+      &:after {
+        width: 1.7rem;
+        @include svg-mask-square;
+        @include svg-mask-image($color-grey-dark, 'chevron-thick-down');
+      }
+    }
+  }
+
+  &-body {
+    padding: 0 3rem 3rem;
+    background-color: $color-white;
+  }
+}
+
+.accordion-coloured {
+  @include master-page {
+    .accordion-button, .accordion-body {
+      background-color: $color-sand;
+    }
+  }
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  .icon {
+    width: $target-hit;
+    aspect-ratio: 1;
+    flex: none;
+    border-radius: 100%;
+    border: solid .3rem $color-blue;
+    img {
+      padding: .7rem;
+      @include image-contain;
+    }
+  }
+}

@@ -1,0 +1,135 @@
+@mixin font-display {
+  font-display: swap;
+}
+
+@mixin font-style-normal {
+  font-style: normal;
+}
+
+@mixin font-style-italic {
+  font-style: italic;
+}
+
+@mixin font-weight-bold {
+  font-weight: bold;
+}
+
+@mixin font-weight-normal {
+  font-weight: normal;
+}
+
+@mixin font-bold-base {
+  @include font-weight-bold;
+  @include font-style-normal;
+}
+
+@mixin font-regular-base {
+  @include font-weight-normal;
+  @include font-style-normal;
+}
+
+@mixin font-italic-base {
+  @include font-weight-normal;
+  @include font-style-italic;
+}
+
+@mixin font-bold-italic-base {
+  @include font-weight-bold;
+  @include font-style-italic;
+}
+
+@mixin font-sans-serif-bold {
+  font-family: $font-sans-serif, $font-sans-serif-base;
+  @include font-bold-base;
+}
+
+@mixin font-sans-serif-bold-italic {
+  font-family: $font-sans-serif, $font-sans-serif-base;
+  @include font-bold-italic-base;
+}
+
+@mixin font-sans-serif-regular {
+  font-family: $font-sans-serif, $font-sans-serif-base;
+  @include font-regular-base;
+}
+
+@mixin font-sans-serif-italic {
+  font-family: $font-sans-serif, $font-sans-serif-base;
+  @include font-italic-base;
+}
+
+@mixin font-serif-bold {
+  font-family: $font-serif, $font-serif-base;
+  @include font-bold-base;
+}
+
+@mixin font-serif-bold-italic {
+  font-family: $font-serif, $font-serif-base;
+  @include font-bold-italic-base;
+}
+
+@mixin font-serif-regular {
+  font-family: $font-serif, $font-serif-base;
+  @include font-regular-base;
+}
+
+@mixin font-serif-italic {
+  font-family: $font-serif, $font-serif-base;
+  @include font-italic-base;
+}
+
+@font-face {
+  font-family: $font-sans-serif;
+  src: url('#{$fonts}/CenturyGothicPaneuropean-Bold.woff2') format('woff2');
+  @include font-bold-base;
+  @include font-display;
+}
+
+@font-face {
+  font-family: $font-sans-serif;
+  src: url('#{$fonts}/CenturyGothicPaneuropean-BoldItalic.woff2') format('woff2');
+  @include font-bold-italic-base;
+  @include font-display;
+}
+
+@font-face {
+  font-family: $font-sans-serif;
+  src: url('#{$fonts}/CenturyGothicPaneuropean.woff2') format('woff2');
+  @include font-regular-base;
+  @include font-display;
+}
+
+@font-face {
+  font-family: $font-sans-serif;
+  src: url('#{$fonts}/CenturyGothicPaneuropean-Italic.woff2') format('woff2');
+  @include font-italic-base;
+  @include font-display;
+}
+
+@font-face {
+  font-family: $font-serif;
+  src: url('#{$fonts}/EBGaramond-Bold.woff2') format('woff2');
+  @include font-bold-base;
+  @include font-display;
+}
+
+@font-face {
+  font-family: $font-serif;
+  src: url('#{$fonts}/EBGaramond-BoldItalic.woff2') format('woff2');
+  @include font-bold-italic-base;
+  @include font-display;
+}
+
+@font-face {
+  font-family: $font-serif;
+  src: url('#{$fonts}/EBGaramond-Regular.woff2') format('woff2');
+  @include font-regular-base;
+  @include font-display;
+}
+
+@font-face {
+  font-family: $font-serif;
+  src: url('#{$fonts}/EBGaramond-Italic.woff2') format('woff2');
+  @include font-italic-base;
+  @include font-display;
+}

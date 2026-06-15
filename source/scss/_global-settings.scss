@@ -1,0 +1,89 @@
+$fonts: "../fonts";
+$images: "../images";
+
+$font-base: pxtopercent(10);
+$font-base-sm: pxtopercent(9);
+$font-base-lg: pxtopercent(11);
+
+$animation-time-long: 4s;
+$animation-time: .5s;
+$animation-ease: cubic-bezier(.19, 1, .22, 1);
+$animation: $animation-time $animation-ease;
+
+$gutter: 3rem;
+$gutter-half: $gutter / 2;
+$gap-small: 2rem;
+$gap-medium: 5rem;
+$gap: 6rem;
+$gap-large: 10rem;
+$gap-xl: 12rem;
+$target-hit: 4.5rem;
+
+$mast-height: 12rem;
+$offer-height: 5.5rem;
+$mast-offer-height: $mast-height + $offer-height;
+
+$sub-gap: #{$mast-height - $target-hit} / 2;
+
+// fonts
+
+$line-body: 1.4;
+$line-heading: 1.2;
+
+$font-sans-serif-base: sans-serif;
+$font-serif-base: serif;
+$font-sans-serif: "Century Gothic Paneuropean";
+$font-serif: "EB Garamond";
+
+$font-huge: 6.6rem;
+$font-extra: 6rem;
+$font-increase: 4rem;
+$font-large: 3.5rem;
+
+$font-body: 2.1rem;
+$font-medium: 1.8rem;
+$font-small: 1.6rem;
+$font-tiny: 1.4rem;
+$font-micro: 1.2rem;
+
+$font-h1: 6.6rem;
+$font-h2: 4.5rem;
+$font-h2-small: 3.5rem;
+$font-h3: 3rem;
+$font-h4: 2.6rem;
+$font-h5: 2.4rem;
+$font-h6: 2.2rem;
+
+// colours
+
+$color-status-green: #00AA6C;
+$color-status-red: #E43528;
+$color-status-orange: #ED8002;
+$color-white: #fff;
+$color-black: #000;
+
+$color-grey-dark: #615D6C;
+$color-cyan: #ACEDFF;
+$color-blue: #89BBFE;
+$color-blue-light: #CAE5FF;
+$color-blue-dark: #6F8AB7;
+
+$color-sand: #F9F5E7;
+$color-sage: #89B6B1;
+$color-pink: #DF8F9B;
+$color-green: #55C2B9;
+$color-yellow: #E6BF9F;
+$color-teal: #4DA8CC;
+
+$color-blue-washed: #F3FAFF;
+$color-grey-washed: #D2DCEA;
+$color-mint: #E0FAFF;
+$color-navy-dark: #2A374A;
+$color-sky: #BBDEFE;
+$color-grey-medium: #666988;
+$color-blue-faded: #E0F2FF;
+$color-blue-fill: #C2D9FF;
+
+$color-yellow-bright: #FFD900;
+
+$color-overlay: rgba($color-blue-dark, .6);

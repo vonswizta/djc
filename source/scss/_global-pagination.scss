@@ -1,0 +1,27 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  .inner {
+    @include flex-centre;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .pages {
+    flex: 0 0 auto;
+    width: 100%;
+    @include font-sans-serif-bold;
+  }
+  .page-numbers {
+    &:not(.next):not(.prev) {
+      @include visually-hidden;
+    }
+  }
+  .next, .prev {
+    @include button-primary;
+    @include button-secondary;
+  }
+  .prev {
+    @include button-previous;
+  }
+}

@@ -1,0 +1,50 @@
+
+::selection {
+  color: $color-grey-dark;
+  background-color: $color-cyan;
+}
+
+#master {
+  font-size: $font-base-sm;
+  display: block;
+  @include media-breakpoint-up(md) {
+    font-size: $font-base;
+  }
+  @include media-breakpoint-up(xxl) {
+    font-size: $font-base-lg;
+  }
+
+  :focus-visible {
+    outline: .3rem solid $color-cyan;
+    outline-offset: .3rem;
+  }
+
+}
+
+body {
+  height: 100%;
+  background-color: $color-white;
+}
+
+#page {
+  overflow-x: clip;
+}
+
+ul, ol {
+  @include list-reset;
+}
+
+iframe {
+  border: 0;
+}
+
+cite {
+  font-style: normal;
+}
+
+a {
+  &, &:hover, &:focus {
+    text-decoration: none;
+    color: inherit;
+  }
+}

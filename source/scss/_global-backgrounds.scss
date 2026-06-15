@@ -1,0 +1,76 @@
+.bg {
+  &.blue-washed {
+    background-color: $color-blue-washed;
+  }
+
+  &.grey-washed {
+    background-color: $color-grey-washed;
+  }
+
+  &.cyan {
+    background-color: $color-cyan;
+  }
+
+  &.mint {
+    background-color: $color-mint;
+  }
+
+  &.navy-dark {
+    background-color: $color-navy-dark;
+  }
+
+  &.sky {
+    background-color: $color-sky;
+  }
+
+  &.blue-dark {
+    background-color: $color-blue-dark;
+  }
+
+  &.grey-dark {
+    background-color: $color-grey-dark;
+  }
+
+  &.grey-medium {
+    background-color: $color-grey-medium;
+  }
+
+  &.blue-faded {
+    background-color: $color-blue-faded;
+  }
+
+  &.blue-light {
+    background-color: $color-blue-light;
+  }
+
+  &.blue-fill {
+    background-color: $color-blue-fill;
+  }
+
+  &.sand {
+    background-color: $color-sand;
+  }
+
+  &.dark, &.navy-dark, &.grey-medium, &.grey-dark, &.blue-dark {
+    .elements > :not(.cards) {
+      color: $color-white;
+
+      .editor {
+        ul {
+          li {
+            &:before {
+              background-color: $color-white;
+            }
+          }
+        }
+
+        blockquote {
+          &:before {
+            background-color: $color-white;
+          }
+        }
+      }
+    }
+  }
+
+}
