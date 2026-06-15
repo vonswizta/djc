@@ -2,7 +2,7 @@
 $head_code = get_field('head_code', 'option');
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?> id="master" class="flex">
+<html <?php language_attributes(); ?> id="master">
 <head itemscope itemtype="http://schema.org/WebSite">
     <?php if ($head_code) { ?>
         <?php echo $head_code; ?>
@@ -38,8 +38,8 @@ $head_code = get_field('head_code', 'option');
     </noscript>
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
+<body <?php body_class(); ?>>
 <div id="page" role="region">
     <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
     <?php get_template_part('parts/global', 'masthead'); ?>
-    <main id="main" itemscope itemprop="mainEntity">
+    <main id="main">
