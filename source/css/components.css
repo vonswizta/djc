@@ -1,0 +1,13 @@
+@layer components {
+    .btn {
+        @apply px-4 py-2 rounded-lg;
+    }
+
+    .btn-primary {
+        @apply btn bg-brand text-white;
+    }
+
+    .card {
+        @apply rounded-xl border p-6 shadow-sm;
+    }
+}
