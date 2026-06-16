@@ -12,50 +12,53 @@ $image = get_field('image');
 ?>
 
 <section id="<?php echo esc_attr($id); ?>">
-    <div class="container mx-auto px-4">
-        <h1>
-            <?php if ($heading) { ?>
-                <?php echo $heading; ?>
-            <?php } else { ?>
-                <?php the_title(); ?>
+    <div class="grid">
+        <div class="col-start-1 row-start-1">
+            <?php if ($image) { ?>
+                <?php
+                $imageID = $image['ID'];
+                echo wp_get_attachment_image($imageID, 'huge', false, array('loading' => 'eager'));
+                ?>
             <?php } ?>
-        </h1>
+        </div>
+        <div class="col-start-1 row-start-1 z-10">
+            <div class="container mx-auto px-4">
+                <h1>
+                    <?php if ($heading) { ?>
+                        <?php echo $heading; ?>
+                    <?php } else { ?>
+                        <?php the_title(); ?>
+                    <?php } ?>
+                </h1>
+                <?php if ($summary) { ?>
+                    <div>
+                        <?php echo $summary; ?>
+                    </div>
+                <?php } ?>
+                <?php if (have_rows('links')) : ?>
+                    <ul>
+                        <?php while (have_rows('links')) : the_row();
 
-        <?php if ($summary) { ?>
-            <div>
-                <?php echo $summary; ?>
+                            $link = get_sub_field('link');
+                            $url = $link['url'] ?? '';
+                            $title = $link['title'] ?? '';
+                            $target = $link['target'] ?? '_self';
+
+                            if ($url) :
+                                ?>
+                                <li>
+                                    <a href="<?php echo esc_url($url); ?>"
+                                       target="<?php echo esc_attr($target); ?>">
+                                        <?php echo esc_html($title); ?>
+                                    </a>
+                                </li>
+                            <?php
+                            endif;
+
+                        endwhile; ?>
+                    </ul>
+                <?php endif; ?>
             </div>
-        <?php } ?>
-
-        <?php if (have_rows('links')) : ?>
-            <ul>
-                <?php while (have_rows('links')) : the_row();
-
-                    $link = get_sub_field('link');
-                    $url = $link['url'] ?? '';
-                    $title = $link['title'] ?? '';
-                    $target = $link['target'] ?? '_self';
-
-                    if ($url) :
-                        ?>
-                        <li>
-                            <a href="<?php echo esc_url($url); ?>"
-                               target="<?php echo esc_attr($target); ?>">
-                                <?php echo esc_html($title); ?>
-                            </a>
-                        </li>
-                    <?php
-                    endif;
-
-                endwhile; ?>
-            </ul>
-        <?php endif; ?>
-
-        <?php if ($image) { ?>
-            <?php
-            $imageID = $image['ID'];
-            echo wp_get_attachment_image($imageID, 'huge', false, array('loading' => 'eager'));
-            ?>
-        <?php } ?>
+        </div>
     </div>
 </section>
