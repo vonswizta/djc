@@ -33,43 +33,47 @@ $image = get_field('image');
                 </div>
             <?php } ?>
         </div>
-        <div class="col-start-1 row-start-1 z-10 text-ivory-white">
+        <div class="col-start-1 row-start-1 z-10 text-ivory-white py-25">
             <div class="container mx-auto px-4">
-                <h1>
-                    <?php if ($heading) { ?>
-                        <?php echo $heading; ?>
-                    <?php } else { ?>
-                        <?php the_title(); ?>
-                    <?php } ?>
-                </h1>
-                <?php if ($summary) { ?>
-                    <div>
-                        <?php echo $summary; ?>
+                <div class="grid grid-cols-12 gap-4">
+                    <div class="col-span-7">
+                        <h1 class="font-merriweather text-[4.0625rem] leading-[1.2] font-bold">
+                            <?php if ($heading) { ?>
+                                <?php echo $heading; ?>
+                            <?php } else { ?>
+                                <?php the_title(); ?>
+                            <?php } ?>
+                        </h1>
+                        <?php if ($summary) { ?>
+                            <div>
+                                <?php echo $summary; ?>
+                            </div>
+                        <?php } ?>
+                        <?php if (have_rows('links')) : ?>
+                            <ul>
+                                <?php while (have_rows('links')) : the_row();
+
+                                    $link = get_sub_field('link');
+                                    $url = $link['url'] ?? '';
+                                    $title = $link['title'] ?? '';
+                                    $target = $link['target'] ?? '_self';
+
+                                    if ($url) :
+                                        ?>
+                                        <li>
+                                            <a href="<?php echo esc_url($url); ?>"
+                                               target="<?php echo esc_attr($target); ?>">
+                                                <?php echo esc_html($title); ?>
+                                            </a>
+                                        </li>
+                                    <?php
+                                    endif;
+
+                                endwhile; ?>
+                            </ul>
+                        <?php endif; ?>
                     </div>
-                <?php } ?>
-                <?php if (have_rows('links')) : ?>
-                    <ul>
-                        <?php while (have_rows('links')) : the_row();
-
-                            $link = get_sub_field('link');
-                            $url = $link['url'] ?? '';
-                            $title = $link['title'] ?? '';
-                            $target = $link['target'] ?? '_self';
-
-                            if ($url) :
-                                ?>
-                                <li>
-                                    <a href="<?php echo esc_url($url); ?>"
-                                       target="<?php echo esc_attr($target); ?>">
-                                        <?php echo esc_html($title); ?>
-                                    </a>
-                                </li>
-                            <?php
-                            endif;
-
-                        endwhile; ?>
-                    </ul>
-                <?php endif; ?>
+                </div>
             </div>
         </div>
     </div>
