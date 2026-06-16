@@ -13,15 +13,27 @@ $image = get_field('image');
 
 <section id="<?php echo esc_attr($id); ?>">
     <div class="grid">
-        <div class="col-start-1 row-start-1">
+        <div class="col-start-1 row-start-1 relative">
             <?php if ($image) { ?>
-                <?php
-                $imageID = $image['ID'];
-                echo wp_get_attachment_image($imageID, 'huge', false, array('loading' => 'eager'));
-                ?>
+                <div class="
+        before:content-['']
+        before:absolute
+        before:inset-0
+        before:bg-linear-to-r
+        before:from-charcoal-grey
+        before:from-30%
+        before:to-transparent
+        before:to-80% before:z-10">
+                    <div class="absolute top-0 right-0 bottom-0 left-[30%]">
+                        <?php
+                        $imageID = $image['ID'];
+                        echo wp_get_attachment_image($imageID, 'huge', false, array('loading' => 'eager', 'class' => 'w-full h-full object-cover'));
+                        ?>
+                    </div>
+                </div>
             <?php } ?>
         </div>
-        <div class="col-start-1 row-start-1 z-10">
+        <div class="col-start-1 row-start-1 z-10 text-ivory-white">
             <div class="container mx-auto px-4">
                 <h1>
                     <?php if ($heading) { ?>
