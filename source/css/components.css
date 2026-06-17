@@ -1,5 +1,17 @@
 @layer components {
-    .example-component {
-        @apply px-4 py-2 rounded-lg;
+    .button {
+        @apply inline-flex items-center justify-center gap-3;
+        @apply bg-jewel-green text-ivory-white hover:bg-moss;
+        @apply rounded-full px-8 py-3;
+        @apply text-lg font-bold;
+        @apply transition-colors;
+    }
+
+    .button-outline {
+        @apply inline-flex items-center justify-center gap-3;
+        @apply text-ivory-white hover:border-soft-gold;
+        @apply rounded-full px-8 py-3 border-2 border-ivory-white;
+        @apply text-lg font-bold;
+        @apply transition-colors;
     }
 }

@@ -36,23 +36,26 @@ $image = get_field('image');
         <div class="col-start-1 lg:row-start-1 z-10 text-ivory-white max-lg:py-4 lg:py-25 max-lg:bg-charcoal-grey">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-12 gap-4">
-                    <div class="max-lg:col-span-12 lg:col-span-7">
-                        <h1 class="font-merriweather max-lg:text-[calc(35/16*1rem)] lg:text-[calc(65/16*1rem)] leading-[1.2] font-bold">
-                            <?php if ($heading) { ?>
-                                <?php echo $heading; ?>
-                            <?php } else { ?>
-                                <?php the_title(); ?>
+                    <div class="max-lg:col-span-12 lg:col-span-7 max-lg:space-y-6 lg:space-y-11">
+                        <div class="space-y-4">
+                            <h1 class="font-merriweather max-lg:text-[calc(35/16*1rem)] lg:text-[calc(65/16*1rem)] leading-[1.2] font-bold">
+                                <?php if ($heading) { ?>
+                                    <?php echo $heading; ?>
+                                <?php } else { ?>
+                                    <?php the_title(); ?>
+                                <?php } ?>
+                            </h1>
+                            <?php if ($summary) { ?>
+                                <div class="lg:text-[calc(18/16*1rem)]">
+                                    <?php echo $summary; ?>
+                                </div>
                             <?php } ?>
-                        </h1>
-                        <?php if ($summary) { ?>
-                            <div>
-                                <?php echo $summary; ?>
-                            </div>
-                        <?php } ?>
+                        </div>
                         <?php if (have_rows('links')) : ?>
-                            <ul>
+                            <ul class="flex flex-wrap items-center gap-3">
                                 <?php while (have_rows('links')) : the_row();
 
+                                    $primary = get_sub_field('primary');
                                     $link = get_sub_field('link');
                                     $url = $link['url'] ?? '';
                                     $title = $link['title'] ?? '';
@@ -61,7 +64,8 @@ $image = get_field('image');
                                     if ($url) :
                                         ?>
                                         <li>
-                                            <a href="<?php echo esc_url($url); ?>"
+                                            <a class="<?php if ($primary) { ?>button<?php } else { ?>button-outline<?php } ?>"
+                                               href="<?php echo esc_url($url); ?>"
                                                target="<?php echo esc_attr($target); ?>">
                                                 <?php echo esc_html($title); ?>
                                             </a>
