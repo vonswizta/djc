@@ -6,36 +6,40 @@ if (!empty($block['anchor'])) {
 $background_colour = get_field('background_colour');
 ?>
 <section id="<?php echo esc_attr($id); ?>"
-         class="<?php if ($background_colour) { ?>bg-<?php echo $background_colour; ?><?php } ?>">
+         class="py-8 <?php if ($background_colour) { ?>bg-<?php echo $background_colour; ?><?php } ?>">
     <div class="container mx-auto px-4">
         <?php if (have_rows('statistics')): ?>
-            <div class="grid grid-cols-4 gap-4">
-                <?php while (have_rows('statistics')): the_row();
-                    $title = get_sub_field('title');
-                    $text = get_sub_field('text');
-                    $image = get_sub_field('image');
-                    ?>
-                    <div id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
-                        <?php if ($image) { ?>
-                            <figure class="image">
-                                <?php
-                                $imageID = $image['ID'];
-                                echo wp_get_attachment_image($imageID, 'thumbnail', false, array('loading' => 'lazy'));
-                                ?>
-                            </figure>
-                        <?php } ?>
-                        <?php if ($title) { ?>
-                            <h2>
-                                <?php echo $title; ?>
-                            </h2>
-                        <?php } ?>
-                        <?php if ($text) { ?>
-                            <div>
-                                <?php echo $text; ?>
+            <div class="bg-ivory-white px-10 py-8 rounded-4xl">
+                <div class="grid lg:grid-cols-2 xl:grid-cols-4 gap-6">
+                    <?php while (have_rows('statistics')): the_row();
+                        $title = get_sub_field('title');
+                        $text = get_sub_field('text');
+                        $image = get_sub_field('image');
+                        ?>
+                        <div class="grid grid-cols-[auto_1fr] gap-3">
+                            <?php if ($image) { ?>
+                                <figure class="w-[calc(60/16*1rem)] aspect-square">
+                                    <?php
+                                    $imageID = $image['ID'];
+                                    echo wp_get_attachment_image($imageID, 'thumbnail', false, array('loading' => 'lazy', 'class' => 'w-full h-full object-contain'));
+                                    ?>
+                                </figure>
+                            <?php } ?>
+                            <div class="details">
+                                <?php if ($title) { ?>
+                                    <h2 class="font-merriweather max-lg:text-[calc(25/16*1rem)] lg:text-[calc(50/16*1rem)] leading-[1.2] font-bold">
+                                        <?php echo $title; ?>
+                                    </h2>
+                                <?php } ?>
+                                <?php if ($text) { ?>
+                                    <div>
+                                        <?php echo $text; ?>
+                                    </div>
+                                <?php } ?>
                             </div>
-                        <?php } ?>
-                    </div>
-                <?php endwhile; ?>
+                        </div>
+                    <?php endwhile; ?>
+                </div>
             </div>
         <?php endif; ?>
     </div>
