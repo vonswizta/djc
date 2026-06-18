@@ -9,7 +9,7 @@ $background_colour = get_field('background_colour');
          class="<?php if ($background_colour) { ?>bg-<?php echo $background_colour; ?><?php } ?>">
     <div class="container mx-auto px-4">
         <?php if (have_rows('statistics')): ?>
-            <div class="statistics">
+            <div class="grid grid-cols-4 gap-4">
                 <?php while (have_rows('statistics')): the_row();
                     $title = get_sub_field('title');
                     $text = get_sub_field('text');
