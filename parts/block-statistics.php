@@ -4,9 +4,17 @@ if (!empty($block['anchor'])) {
     $id = $block['anchor'];
 }
 $background_colour = get_field('background_colour');
+
+$background_classes = [
+    'champagne-gold' => 'bg-champagne-gold',
+    'ivory-white' => 'bg-ivory-white',
+];
+
+$background_class = $background_classes[$background_colour] ?? '';
 ?>
+
 <section id="<?php echo esc_attr($id); ?>"
-         class="py-8 <?php if ($background_colour) { ?>bg-<?php echo $background_colour; ?><?php } ?>">
+         class="py-8 <?php if ($background_colour) { ?><?php echo $background_class; ?><?php } ?>">
     <div class="container mx-auto px-4">
         <?php if (have_rows('statistics')): ?>
             <div class="bg-ivory-white px-10 py-8 rounded-4xl">
