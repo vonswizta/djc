@@ -1,12 +1,23 @@
-if (document.querySelector('.cookie-banner') !== null) {
-    if (document.cookie.indexOf("cookieok=") < 0) {
-        $('.cookie-banner').addClass('active');
+const cookieBanner = document.querySelector('.cookie-banner');
+
+if (cookieBanner) {
+    if (document.cookie.indexOf('cookieok=') < 0) {
+        cookieBanner.classList.remove('hidden');
     }
-    $(document).on('click', '.cookie-accept', function (e) {
-        e.preventDefault();
-        var expiryDate = new Date();
-        expiryDate.setMonth(expiryDate.getMonth() + 1);
-        document.cookie = 'cookieok=1; expires=' + expiryDate.toGMTString() + ';';
-        $('.cookie-banner').removeClass('active');
+
+    document.addEventListener('click', function (e) {
+        if (e.target.closest('.cookie-accept')) {
+            e.preventDefault();
+
+            const expiryDate = new Date();
+            expiryDate.setMonth(expiryDate.getMonth() + 1);
+
+            document.cookie =
+                'cookieok=1; expires=' +
+                expiryDate.toUTCString() +
+                '; path=/; SameSite=Lax';
+
+            cookieBanner.classList.add('hidden');
+        }
     });
 }

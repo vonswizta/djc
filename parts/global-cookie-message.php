@@ -3,15 +3,17 @@ $cookie_message = get_field('cookie_message', 'option');
 ?>
 
 <?php if ($cookie_message) { ?>
-    <div class="cookie-banner">
-        <div class="row g-2 g-lg-3">
-            <div class="col-lg">
-                <div class="editor">
-                    <?php echo $cookie_message; ?>
+    <div class="cookie-banner bg-warm-cream py-3 fixed bottom-0 left-0 right-0 hidden">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-12">
+                <div class="max-lg:col-span-full lg:col-span-8 lg:col-start-3">
+                    <div class="grid grid-cols-[1fr_auto] gap-4 items-center">
+                        <div class="space-y-4 text-sm">
+                            <?php echo $cookie_message; ?>
+                        </div>
+                        <a class="button-small cookie-accept" href="#">OK</a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-auto">
-                <a class="button no-arrow cookie-accept d-flex" href="#">OK</a>
             </div>
         </div>
     </div>

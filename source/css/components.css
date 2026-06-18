@@ -1,10 +1,37 @@
 @layer components {
+    .header-nav {
+        ul {
+            @apply flex items-center gap-5;
+
+            a {
+                @apply relative flex px-4 py-2 text-lg font-medium hover:after:opacity-100;
+
+                &:after {
+                    @apply opacity-0 content-[''] absolute left-0 right-0 top-full h-0.5 bg-champagne-gold transition-opacity;
+                }
+            }
+
+            .current_page_item {
+                a {
+                    &:after {
+                        @apply opacity-100 bg-jewel-green;
+                    }
+                }
+            }
+
+            ul {
+                @apply hidden;
+            }
+        }
+    }
+
     .button {
-        @apply inline-flex items-center justify-center gap-3;
-        @apply bg-jewel-green text-ivory-white hover:bg-moss;
-        @apply rounded-full px-8 py-3;
-        @apply text-lg font-bold;
-        @apply transition-colors;
+        @apply button-common;
+        @apply text-lg;
+    }
+
+    .button-small {
+        @apply button-common;
     }
 
     .button-outline {

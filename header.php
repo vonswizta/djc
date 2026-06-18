@@ -41,6 +41,7 @@ $head_code = get_field('head_code', 'option');
 </head>
 <body <?php body_class('bg-charcoal-grey'); ?>>
 <div id="page" role="region">
+    <?php get_template_part('parts/global', 'cookie-message'); ?>
     <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:rounded-md focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
        href="#main">Skip to content</a>
     <?php get_template_part('parts/global', 'masthead'); ?>

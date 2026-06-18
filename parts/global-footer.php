@@ -7,7 +7,7 @@ $newsletter = get_field('newsletter', 'option');
 
 ?>
 
-<footer class="bg-charcoal-grey text-ivory-white border-t-4 border-t-jewel-green py-17">
+<footer id="footer" class="bg-charcoal-grey text-ivory-white border-t-4 border-t-jewel-green py-17">
     <div class="container mx-auto px-4">
         <div class="flex flex-wrap items-center justify-between">
             <div class="grid grid-cols-12 gap-4">

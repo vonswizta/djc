@@ -1,5 +1,8 @@
-@layer utilities {
-    .example-utility {
-        display: block;
-    }
+@utility button-common {
+    @apply inline-flex items-center justify-center gap-3;
+    @apply bg-jewel-green text-ivory-white hover:bg-moss;
+    @apply px-8 py-3;
+    @apply rounded-full;
+    @apply font-bold;
+    @apply transition-colors;
 }
