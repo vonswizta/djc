@@ -18,10 +18,22 @@
                     }
                 }
             }
+        }
+    }
 
-            ul {
-                @apply hidden;
+    .menu ul ul {
+        @apply hidden;
+    }
+
+    .footer-nav {
+        li {
+            &:not(:last-child) {
+                @apply mb-2;
             }
+        }
+
+        a {
+            @apply hover:text-champagne-gold transition-colors;
         }
     }
 
