@@ -14,11 +14,11 @@ $background_class = $background_classes[$background_colour] ?? '';
 ?>
 
 <section id="<?php echo esc_attr($id); ?>"
-         class="py-8 <?php if ($background_colour) { ?><?php echo $background_class; ?><?php } ?>">
+         class="max-lg:py-4 lg:py-8 <?php if ($background_colour) { ?><?php echo $background_class; ?><?php } ?>">
     <div class="container mx-auto px-4">
         <?php if (have_rows('statistics')): ?>
-            <div class="bg-ivory-white px-10 py-8 rounded-4xl">
-                <div class="grid lg:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div class="bg-ivory-white max-lg:p-6 lg:py-8 lg:px-10 rounded-4xl">
+                <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
                     <?php while (have_rows('statistics')): the_row();
                         $title = get_sub_field('title');
                         $text = get_sub_field('text');
@@ -35,7 +35,7 @@ $background_class = $background_classes[$background_colour] ?? '';
                             <?php } ?>
                             <div class="details">
                                 <?php if ($title) { ?>
-                                    <h2 class="font-merriweather max-lg:text-[calc(25/16*1rem)] lg:text-[calc(50/16*1rem)] leading-[1.2] font-bold">
+                                    <h2 class="font-merriweather max-lg:text-[calc(35/16*1rem)] lg:text-[calc(50/16*1rem)] leading-[1.2] font-bold">
                                         <?php echo $title; ?>
                                     </h2>
                                 <?php } ?>

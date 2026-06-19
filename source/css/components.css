@@ -25,6 +25,45 @@
         }
     }
 
+    .mobile-menu {
+        [class^="button"] {
+            @apply flex;
+        }
+
+        ul {
+            li {
+                &:not(:last-child) {
+                    @apply border-b border-b-slate-grey;
+                }
+            }
+
+            a {
+                @apply flex py-3;
+            }
+        }
+    }
+
+    .menu-toggle {
+        @apply flex items-center justify-center w-11 aspect-square;
+        @apply transition-colors;
+
+        &:after {
+            @apply content-[''] bg-ivory-white flex-1 self-stretch;
+            mask: url('../images/menu.svg') center / 80% no-repeat;
+        }
+
+        &[aria-expanded="true"] {
+            &:after {
+                mask-image: url('../images/close.svg');
+                mask-size: 60%;
+            }
+        }
+    }
+
+    button {
+        @apply cursor-pointer;
+    }
+
     .button {
         @apply button-common;
         @apply text-lg;

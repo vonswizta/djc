@@ -15,6 +15,6 @@
     --font-sans: "Inter", sans-serif;
     --font-merriweather: "Merriweather", serif;
 
-    --breakpoint-xl: 75rem;  /* 1200px */
-    --breakpoint-2xl: 83rem; /* 1328px */
+    --breakpoint-xl: 75rem;
+    --breakpoint-2xl: 83rem;
 }
