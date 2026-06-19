@@ -1,6 +1,6 @@
 <?php
-$phone = get_field('header_phone', 'option');
-$button = get_field('header_button', 'option');
+$phone = get_field('whatsapp', 'option');
+$button = get_field('button', 'option');
 ?>
 <?php
 if ($phone):
