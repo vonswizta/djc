@@ -5,6 +5,7 @@ if (!empty($block['anchor'])) {
 }
 
 $heading = get_field('heading');
+$link = get_field('link');
 ?>
 
 <section id="<?php echo esc_attr($id); ?>"
@@ -39,6 +40,17 @@ $heading = get_field('heading');
                     </li>
                 <?php endwhile; ?>
             </ul>
+        <?php endif; ?>
+        <?php
+        if ($link):
+            $link_url = $link['url'];
+            $link_title = $link['title'];
+            $link_target = $link['target'] ? $link['target'] : '_self';
+            ?>
+            <div class="lg:flex lg:justify-center">
+                <a class="button" href="<?php echo esc_url($link_url); ?>"
+                   target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
+            </div>
         <?php endif; ?>
     </div>
 </section>
