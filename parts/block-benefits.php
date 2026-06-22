@@ -10,24 +10,24 @@ $heading = get_field('heading');
 <?php include locate_template('parts/global-background-colour.php'); ?>
 
 <section id="<?php echo esc_attr($id); ?>"
-         class="max-lg:py-4 lg:py-17 <?php echo esc_attr($background_class); ?>">
-    <div class="container mx-auto px-4">
+         class="max-lg:py-6 lg:py-17 <?php echo esc_attr($background_class); ?>">
+    <div class="container mx-auto px-4 space-y-8">
         <?php if ($heading) { ?>
-            <h2 class="font-merriweather max-lg:text-[calc(24/16*1rem)] lg:text-[calc(35/16*1rem)] leading-[1.2] font-bold text-center">
+            <h2 class="font-merriweather max-lg:text-[calc(24/16*1rem)] lg:text-[calc(35/16*1rem)] leading-[1.2] font-bold xl:text-center">
                 <?php echo $heading; ?>
             </h2>
         <?php } ?>
         <?php if (have_rows('benefits')): ?>
-            <div class="grid sm:grid-cols-2 xl:grid-cols-4 max-lg:gap-4 lg:gap-8">
+            <div class="grid sm:grid-cols-2 xl:grid-cols-4 max-lg:gap-6 lg:gap-15">
                 <?php while (have_rows('benefits')): the_row();
                     $title = get_sub_field('title');
                     $text = get_sub_field('text');
                     $image = get_sub_field('image');
                     ?>
-                    <div class="item">
+                    <div class="space-y-4">
                         <?php if ($image) { ?>
-                            <div class="flex justify-center">
-                                <figure class="w-[calc(90/16*1rem)] aspect-square">
+                            <div class="flex xl:justify-center">
+                                <figure class="w-[calc(85/16*1rem)] aspect-square">
                                     <?php
                                     $imageID = $image['ID'];
                                     echo wp_get_attachment_image($imageID, 'thumbnail', false, array('loading' => 'lazy', 'class' => 'w-full h-full object-contain'));
@@ -35,7 +35,7 @@ $heading = get_field('heading');
                                 </figure>
                             </div>
                         <?php } ?>
-                        <div class="details">
+                        <div class="details space-y-1">
                             <?php if ($title) { ?>
                                 <h2 class="font-merriweather max-lg:text-[calc(18/16*1rem)] lg:text-[calc(22/16*1rem)] leading-[1.2] font-bold">
                                     <?php echo $title; ?>
