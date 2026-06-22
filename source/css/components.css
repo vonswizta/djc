@@ -92,4 +92,35 @@
         @apply text-lg font-bold;
         @apply transition-colors;
     }
+
+    .steps {
+        counter-reset: step;
+
+        > li {
+            counter-increment: step;
+
+            &:before {
+                content: counter(step);
+                @apply flex items-center justify-center relative z-1 font-merriweather mb-5 w-[calc(60/16*1rem)] aspect-square rounded-full bg-champagne-gold text-charcoal-grey text-[calc(30/16*1rem)] font-bold;
+            }
+
+            &:first-child .inner:before, &:last-child .inner:after {
+                @apply xl:hidden;
+            }
+        }
+
+        .inner {
+            &:before, &:after {
+                @apply xl:content-[''] xl:absolute xl:top-[calc(30/16*1rem)] xl:bg-champagne-gold xl:h-px;
+            }
+
+            &:before {
+                @apply xl:left-[calc(-30/16*1rem)] xl:right-1/2;
+            }
+
+            &:after {
+                @apply xl:right-[calc(-30/16*1rem)] xl:left-1/2;
+            }
+        }
+    }
 }

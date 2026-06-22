@@ -54,6 +54,19 @@ function register_acf_block_types() {
         'keywords'          => array( 'image', 'text' ),
     ));
 
+    acf_register_block_type(array(
+        'name'              => 'steps',
+        'title'             => __('Steps'),
+        'description'       => __('A custom steps block.'),
+        'render_callback'	=> 'my_acf_block_render_callback',
+        'category'          => 'custom-blocks',
+        'icon'            => array(
+            'foreground' => '#1A8A73',
+            'src'        => 'format-aside',
+        ),
+        'keywords'          => array( 'image', 'text' ),
+    ));
+
 }
 
 if( function_exists('acf_register_block_type') ) {
