@@ -28,6 +28,19 @@ function register_acf_block_types() {
         'keywords'          => array( 'image', 'text' ),
     ));
 
+    acf_register_block_type(array(
+        'name'              => 'panels',
+        'title'             => __('Panels'),
+        'description'       => __('A custom panels block.'),
+        'render_callback'	=> 'my_acf_block_render_callback',
+        'category'          => 'custom-blocks',
+        'icon'            => array(
+            'foreground' => '#1A8A73',
+            'src'        => 'format-aside',
+        ),
+        'keywords'          => array( 'image', 'text' ),
+    ));
+
 }
 
 if( function_exists('acf_register_block_type') ) {

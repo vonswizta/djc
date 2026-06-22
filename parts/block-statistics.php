@@ -3,18 +3,12 @@ $id = 'statistics-' . $block['id'];
 if (!empty($block['anchor'])) {
     $id = $block['anchor'];
 }
-$background_colour = get_field('background_colour');
-
-$background_classes = [
-    'champagne-gold' => 'bg-champagne-gold',
-    'ivory-white' => 'bg-ivory-white',
-];
-
-$background_class = $background_classes[$background_colour] ?? '';
 ?>
 
+<?php include locate_template('parts/global-background-colour.php'); ?>
+
 <section id="<?php echo esc_attr($id); ?>"
-         class="max-lg:py-4 lg:py-8 <?php if ($background_colour) { ?><?php echo $background_class; ?><?php } ?>">
+         class="max-lg:py-4 lg:py-8 <?php echo esc_attr($background_class); ?>">
     <div class="container mx-auto px-4">
         <?php if (have_rows('statistics')): ?>
             <div class="bg-ivory-white max-lg:p-6 lg:py-8 lg:px-10 rounded-4xl">
