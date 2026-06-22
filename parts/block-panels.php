@@ -22,9 +22,9 @@ $switch = get_field('switch');
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-12 lg:gap-10">
                     <div class="max-lg:col-span-12 max-lg:space-y-6 lg:space-y-10 max-lg:py-4 lg:py-17 <?php if ($switch) { ?>lg:col-span-6 lg:col-start-7<?php } else { ?>lg:col-span-6<?php } ?>">
-                        <div class="max-lg:space-y-6 lg:space-y-8">
+                        <div class="max-lg:space-y-4 lg:space-y-8">
                             <?php if ($heading) { ?>
-                                <h2 class="font-merriweather max-lg:text-[calc(22/16*1rem)] lg:text-[calc(40/16*1rem)] leading-[1.2] font-bold"><?php echo $heading; ?></h2>
+                                <h2 class="font-merriweather max-lg:text-[calc(26/16*1rem)] lg:text-[calc(40/16*1rem)] leading-[1.2] font-bold"><?php echo $heading; ?></h2>
                             <?php } ?>
                             <?php if ($text) { ?>
                                 <div class="space-y-3">
@@ -32,11 +32,11 @@ $switch = get_field('switch');
                                 </div>
                             <?php } ?>
                             <?php if (have_rows('highlights')): ?>
-                                <ul class="highlights">
+                                <ul class="highlights space-y-3">
                                     <?php while (have_rows('highlights')): the_row();
                                         $text = get_sub_field('text');
                                         ?>
-                                        <li>
+                                        <li class="flex items-center gap-2 before:content-[''] before:flex-none before:aspect-square before:w-5 before:bg-moss before:[mask:url('../images/tick.svg')_center/contain_no-repeat]">
                                             <?php if ($text) { ?>
                                                 <?php echo $text; ?>
                                             <?php } ?>
