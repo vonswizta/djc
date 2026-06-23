@@ -123,4 +123,22 @@
             }
         }
     }
+
+    .breadcrumb {
+        a {
+            @apply leading-[1] underline underline-offset-4 decoration-2 decoration-champagne-gold hover:decoration-jewel-green transition-colors;
+        }
+
+        > span {
+            @apply flex flex-wrap items-center gap-2;
+
+            > span {
+                @apply flex items-center gap-2;
+
+                &:not(:last-child) {
+                    @apply after:content-[''] after:flex-none after:aspect-square after:w-3 after:bg-charcoal-grey after:[mask:url('../images/arrow-next.svg')_center/contain_no-repeat];
+                }
+            }
+        }
+    }
 }

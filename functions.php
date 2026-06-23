@@ -18,39 +18,6 @@ function my_remove_admin_menus()
     remove_menu_page('edit-comments.php');
 }
 
-add_action('init', 'my_add_excerpts_to_pages');
-function my_add_excerpts_to_pages()
-{
-    add_post_type_support('page', 'excerpt');
-}
-
-function excerpt($limit)
-{
-    $excerpt = explode(' ', get_the_excerpt(), $limit);
-    if (count($excerpt) >= $limit) {
-        array_pop($excerpt);
-        $excerpt = implode(" ", $excerpt) . '...';
-    } else {
-        $excerpt = implode(" ", $excerpt);
-    }
-    $excerpt = preg_replace('`[[^]]*]`', '', $excerpt);
-    return $excerpt;
-}
-
-function custom_excerpt_length($length)
-{
-    return 25;
-}
-
-add_filter('excerpt_length', 'custom_excerpt_length', 999);
-
-function new_excerpt_more($more)
-{
-    return '...';
-}
-
-add_filter('excerpt_more', 'new_excerpt_more');
-
 add_theme_support('title-tag');
 
 add_theme_support('post-thumbnails');
@@ -147,26 +114,3 @@ function register_menu()
 }
 
 add_action('init', 'register_menu');
-
-add_filter('get_the_archive_title', function ($title) {
-    if (is_category()) {
-        $title = single_cat_title('', false);
-    } elseif (is_tag()) {
-        $title = single_tag_title('', false);
-    } elseif (is_author()) {
-        $fname = get_the_author_meta('first_name');
-        $lname = get_the_author_meta('last_name');
-        $author = get_the_author();
-        if ($fname && $lname) {
-            $author_name = "{$fname} {$lname}";
-        } else {
-            $author_name = $author;
-        }
-        $title = $author_name;
-    } elseif (is_tax()) {
-        $title = sprintf(__('%1$s'), single_term_title('', false));
-    } elseif (is_post_type_archive()) {
-        $title = post_type_archive_title('', false);
-    }
-    return $title;
-});

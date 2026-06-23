@@ -11,7 +11,7 @@ $image = get_field('image');
 
 ?>
 
-<section id="<?php echo esc_attr($id); ?>">
+<header id="<?php echo esc_attr($id); ?>" aria-labelledby="page-title">
     <div class="grid">
         <div class="col-start-1 lg:row-start-1 relative">
             <?php if ($image) { ?>
@@ -38,7 +38,8 @@ $image = get_field('image');
                 <div class="grid grid-cols-12 gap-4">
                     <div class="max-lg:col-span-12 lg:col-span-7 max-lg:space-y-6 lg:space-y-11">
                         <div class="space-y-4">
-                            <h1 class="font-merriweather max-lg:text-[calc(35/16*1rem)] lg:text-[calc(65/16*1rem)] leading-[1.2] font-bold">
+                            <h1 id="page-title"
+                                class="font-merriweather max-lg:text-[calc(35/16*1rem)] lg:text-[calc(65/16*1rem)] leading-[1.2] font-bold">
                                 <?php if ($heading) { ?>
                                     <?php echo $heading; ?>
                                 <?php } else { ?>
@@ -81,4 +82,4 @@ $image = get_field('image');
             </div>
         </div>
     </div>
-</section>
+</header>

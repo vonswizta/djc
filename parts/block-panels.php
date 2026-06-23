@@ -20,9 +20,9 @@ $switch = get_field('switch');
     <div class="grid">
         <div class="col-start-1 lg:row-start-1 z-10">
             <div class="container mx-auto px-4">
-                <div class="grid grid-cols-12 lg:gap-10">
+                <div class="grid grid-cols-12 lg:gap-25">
                     <div class="max-lg:col-span-12 max-lg:space-y-6 lg:space-y-10 max-lg:py-4 lg:py-17 <?php if ($switch) { ?>lg:col-span-6 lg:col-start-7<?php } else { ?>lg:col-span-6<?php } ?>">
-                        <div class="max-lg:space-y-4 lg:space-y-8">
+                        <div class="max-lg:space-y-4 lg:space-y-6">
                             <?php if ($heading) { ?>
                                 <h2 class="font-merriweather max-lg:text-[calc(26/16*1rem)] lg:text-[calc(40/16*1rem)] leading-[1.2] font-bold"><?php echo $heading; ?></h2>
                             <?php } ?>
@@ -61,13 +61,15 @@ $switch = get_field('switch');
             </div>
         </div>
         <div class="col-start-1 lg:row-start-1">
-            <div class="grid grid-cols-12 lg:gap-10 h-full">
+            <div class="grid grid-cols-12 h-full">
                 <div class="max-lg:col-span-12 relative <?php if ($switch) { ?>lg:col-span-6<?php } else { ?>lg:col-span-6 lg:col-start-7<?php } ?>">
                     <div class="max-lg:aspect-21/9 lg:absolute lg:inset-0">
-                        <?php
-                        $imageID = $image['ID'];
-                        echo wp_get_attachment_image($imageID, 'large', false, array('loading' => 'lazy', 'class' => 'w-full h-full object-cover'));
-                        ?>
+                        <?php if ($image) { ?>
+                            <?php
+                            $imageID = $image['ID'];
+                            echo wp_get_attachment_image($imageID, 'large', false, array('loading' => 'lazy', 'class' => 'w-full h-full object-cover'));
+                            ?>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
