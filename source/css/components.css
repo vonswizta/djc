@@ -72,11 +72,11 @@
         }
     }
 
-    button {
+    button, input[type="submit"] {
         @apply cursor-pointer;
     }
 
-    .button {
+    .button, button, input[type="submit"] {
         @apply button-common;
         @apply text-lg;
     }
@@ -140,5 +140,27 @@
                 }
             }
         }
+    }
+
+    .ff-btn {
+        @apply button-common!;
+        @apply text-lg!;
+        @apply opacity-100!;
+    }
+
+    .ff-el-form-control {
+        @apply border-slate-grey/25!;
+
+        &:focus, &:focus-visible {
+            @apply border-jewel-green!;
+        }
+    }
+
+    .fluentform fieldset > :last-child {
+        @apply mb-0!;
+    }
+
+    .ff-message-success {
+        @apply border-0! p-0! m-0! shadow-none!;
     }
 }
