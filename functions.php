@@ -64,7 +64,6 @@ remove_action('admin_print_styles', 'print_emoji_styles');
 
 function enqueue_scripts()
 {
-    wp_deregister_script('jquery');
     $theme_dir = get_template_directory();
     $theme_uri = get_template_directory_uri();
 
@@ -76,8 +75,13 @@ function enqueue_scripts()
         true
     );
 }
-
 add_action('wp_enqueue_scripts', 'enqueue_scripts');
+
+add_action('wp_enqueue_scripts', function () {
+    if (is_page('contact')) {
+        wp_enqueue_script('jquery');
+    }
+}, 20);
 
 function menu_header()
 {

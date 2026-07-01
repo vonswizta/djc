@@ -16,6 +16,19 @@ function register_acf_block_types() {
     ));
 
     acf_register_block_type(array(
+        'name'              => 'banner',
+        'title'             => __('Banner'),
+        'description'       => __('A custom banner block.'),
+        'render_callback'	=> 'my_acf_block_render_callback',
+        'category'          => 'custom-blocks',
+        'icon'            => array(
+            'foreground' => '#1A8A73',
+            'src'        => 'format-aside',
+        ),
+        'keywords'          => array( 'image', 'text' ),
+    ));
+
+    acf_register_block_type(array(
         'name'              => 'statistics',
         'title'             => __('Statistics'),
         'description'       => __('A custom statistics block.'),
